@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>京都・嵐山観光ガイド</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- jQuery UI -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.14.1/themes/base/jquery-ui.css">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.14.1/jquery-ui.min.js"></script>
+</head>
+
+<body>
+
+<section class="hero">
+
+    <img src="images/arashiyama1.jpg" class="slide active" alt="嵐山1">
+    <img src="images/arashiyama2.jpg" class="slide" alt="嵐山2">
+    <img src="images/arashiyama3.jpg" class="slide" alt="嵐山3">
+
+    <div class="hero-text">
+        <h1>京都・嵐山観光ガイド</h1>
+        <p>自然と歴史が調和する、京都を代表する景勝地</p>
+        <p>風情あふれる嵐山で心安らぐひとときを</p>
+
+        <a href="#map-area" class="hero-button">地図を見る</a>
+
+    </div>
+
+</section>
+
+<nav>
+    <ul>
+        <li><a href="#about">嵐山について</a></li>
+        <li><a href="#spot">見どころ</a></li>
+        <li><a href="#map-area">アクセス</a></li>
+    </ul>
+</nav>
+
+<div class="dialog-area">
+    <button id="openDialog">観光のポイントを見る</button>
+</div>
+
+    <!-- 紹介 -->
+    <section class="about" id="about">
+        <h2>嵐山について</h2>
+
+        <p>
+            嵐山は京都市西京区・右京区にまたがる人気観光地です。
+            四季折々の美しい景色を楽しめることから、多くの観光客が国内外から訪れます。
+            春には桜、夏には青々とした竹林、秋には鮮やかな紅葉、冬にはふき景色と、
+            一年を通して異なる美しい景色を楽しむことができます。
+        </p>
+
+        <p>
+            嵐山のシンボルである「渡月橋」は、桂川にかかる歴史ある橋として知られ、
+            周辺には竹林の小径や天龍寺、キモノフォレストなど魅力的な観光スポットが点在しています。
+            ゆっくり散策しながら京都ならではの風情や歴史を感じられることも、嵐山の大きな魅力です。
+        </p>
+
+        <p>
+            また、和菓子や抹茶スイーツ、湯豆腐など京都らしいグルメも充実しており、
+            食べ歩きを楽しめるのも人気の理由の一つです。
+            自然・歴史・文化・グルメを一度に満喫できる嵐山は、京都観光で外せないおすすめのエリアです。
+        </p>
+    </section>
+
+    <section class="spot" id="spot">
+
+    <h2>嵐山の見どころ</h2>
+
+    <div class="cards">
+
+        <div class="card" onclick="showSpot('togetsukyo')">
+            <img src="images/togetsukyo.jpg" alt="渡月橋">
+            <h3>渡月橋</h3>
+            <p>
+                嵐山を代表する橋。桂川に架かる美しい景色は
+                四季を通して多くの観光客を魅了しています。
+            </p>
+        </div>
+
+        <div class="card" onclick="showSpot('chikurin')">
+            <img src="images/chikurin.jpg" alt="竹林の小径">
+            <h3>竹林の小径</h3>
+            <p>
+                空高く伸びる竹が並ぶ幻想的な散策路。
+                嵐山を訪れたら外せない人気スポットです。
+            </p>
+        </div>
+
+        <div class="card" onclick="showSpot('kimono')">
+            <img src="images/kimono.jpg" alt="キモノフォレスト">
+            <h3>キモノフォレスト</h3>
+            <p>
+                京友禅を使ったポールが並ぶ幻想的なスポット。
+                夜にはライトアップも楽しめます。
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+    <section class="accordion">
+
+        <div id="accordion">
+
+            <h3>見どころ</h3>
+            <div>
+                <ul>
+                    <li>竹林の小径</li>
+                    <li>渡月橋</li>
+                    <li>キモノフォレスト</li>
+                </ul>
+            </div>
+
+            <h3>アクセス</h3>
+            <div>
+                <p>
+                    JR嵯峨嵐山駅・阪急嵐山駅・嵐電嵐山駅から徒歩圏内です。
+                </p>
+            </div>
+
+            <h3>おすすめの季節</h3>
+            <div>
+                <p>
+                    春の桜、秋の紅葉が特に人気です。
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Google Map -->
+    <section class="map-area" id="map-area">
+        <h2>アクセスマップ</h2>
+
+        <div id="map"></div>
+
+    </section>
+
+        <div id="dialog" title="嵐山観光のポイント">
+
+            <h3>おすすめの時間帯</h3>
+            <p>朝9時頃は比較的人が少なく、ゆっくり散策できます。</p>
+
+            <h3>ベストシーズン</h3>
+            <p>春は桜、秋は紅葉が特に人気です。</p>
+
+            <h3>おすすめグルメ</h3>
+            <p>湯豆腐、抹茶スイーツ、和菓子、食べ歩きグルメが楽しめます。</p>
+
+            <h3>アクセス</h3>
+            <p>JR・阪急・嵐電の各駅から徒歩でアクセスできます。</p>
+
+        </div>
+
+    <!-- フッター -->
+    <footer>
+        <p>&copy; 2026 京都・嵐山観光ガイド</p>
+    </footer>
+
+<script>
+
+let map;
+const markers = {};
+const infoWindows = {};
+
+function initMap() {
+
+    // 地図の中心
+    const center = {
+        lat: 35.0135,
+        lng: 135.6778
+    };
+
+    // 地図を作成
+    map = new google.maps.Map(document.getElementById("map"), {
+        zoom: 15,
+        center: center
+    });
+
+    // スポット情報
+    const spots = [
+        {
+            id: "togetsukyo",
+            name: "渡月橋",
+            lat: 35.0136,
+            lng: 135.6778,
+            image: "images/togetsukyo.jpg",
+            text: "嵐山を代表する橋。四季折々の景色を楽しめます。"
+        },
+        {
+            id: "chikurin",
+            name: "竹林の小径",
+            lat: 35.0172,
+            lng: 135.6713,
+            image: "images/chikurin.jpg",
+            text: "竹林に囲まれた幻想的な散策路です。"
+        },
+        {
+            id: "kimono",
+            name: "キモノフォレスト",
+            lat: 35.0153,
+            lng: 135.6770,
+            image: "images/kimono.jpg",
+            text: "京友禅を使ったアートが並ぶ人気スポットです。"
+        }
+    ];
+
+    // マーカーを作成
+    spots.forEach((spot) => {
+
+        const marker = new google.maps.Marker({
+            position: {
+                lat: spot.lat,
+                lng: spot.lng
+            },
+            map: map,
+            title: spot.name
+        });
+
+        const infoWindow = new google.maps.InfoWindow({
+            content: `
+                <div style="width:240px;">
+                    <img src="${spot.image}" style="width:100%; border-radius:8px;">
+                    <h3>${spot.name}</h3>
+                    <p>${spot.text}</p>
+                </div>
+            `
+        });
+
+        markers[spot.id] = marker;
+        infoWindows[spot.id] = infoWindow;
+
+        marker.addListener("click", () => {
+            infoWindow.open({
+                anchor: marker,
+                map: map
+            });
+        });
+
+    });
+
+}
+
+// カードをクリックしたとき
+function showSpot(id) {
+
+    // 地図までスクロール
+    document.getElementById("map-area").scrollIntoView({
+        behavior: "smooth"
+    });
+
+    setTimeout(() => {
+
+        const marker = markers[id];
+        const infoWindow = infoWindows[id];
+
+        if (!marker || !infoWindow) return;
+
+        // 地図を移動
+        map.panTo(marker.getPosition());
+        map.setZoom(17);
+
+        // 情報ウィンドウを表示
+        infoWindow.open({
+            anchor: marker,
+            map: map
+        });
+
+        // マーカーを跳ねさせる
+        marker.setAnimation(google.maps.Animation.BOUNCE);
+
+        setTimeout(() => {
+            marker.setAnimation(null);
+        }, 1400);
+
+    }, 700);
+
+}
+
+$(function () {
+
+    // アコーディオン
+    $("#accordion").accordion({
+        collapsible: true,
+        heightStyle: "content"
+    });
+
+    // ダイアログ
+    $("#dialog").dialog({
+        autoOpen: false,
+        modal: true,
+        width: 450,
+        show: {
+            effect: "fade",
+            duration: 300
+        },
+        hide: {
+            effect: "fade",
+            duration: 300
+        }
+    });
+
+    // ボタンでダイアログを開く
+    $("#openDialog").click(function () {
+        $("#dialog").dialog("open");
+    });
+
+    // スライドショー
+    let current = 0;
+    const slides = $(".slide");
+
+    setInterval(function () {
+
+        slides.eq(current).removeClass("active");
+
+        current = (current + 1) % slides.length;
+
+        slides.eq(current).addClass("active");
+
+    }, 3000);
+
+});
+
+</script>
+
+<!-- Google Maps API -->
+<script async
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAh00wjrRO7bv_watKPRccoYFZxh11QOG4&callback=initMap">
+</script>
+
+</body>
+
+</html>
